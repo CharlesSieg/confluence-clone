@@ -1,0 +1,14 @@
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  testDir: './tests',
+  timeout: 30000,
+  expect: {
+    timeout: 10000,
+  },
+  use: {
+    baseURL: 'http://localhost:3033',
+    trace: 'on-first-retry',
+  },
+  retries: 1,
+});

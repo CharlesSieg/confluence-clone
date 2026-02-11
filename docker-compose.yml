@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3033:3033"
+    volumes:
+      - wiki-data:/app/data
+    environment:
+      - PORT=3033
+      - DB_PATH=/app/data/wiki.db
+      - NODE_ENV=production
+    restart: unless-stopped
+
+volumes:
+  wiki-data:
